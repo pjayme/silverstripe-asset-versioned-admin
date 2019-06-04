@@ -1,6 +1,6 @@
 {
     "name": "pjayme/silverstripe-asset-versioned-admin",
-    "description": "A skeleton for SilverStripe modules.",
+    "description": "A history viewer for files",
     "type": "silverstripe-vendormodule",
     "keywords": [
         "silverstripe",
