@@ -13,7 +13,7 @@ use SilverStripe\VersionedAdmin\Forms\HistoryViewerField;
 
 class ViewerController extends LeftAndMain
 {
-    private static $url_segment = 'assets/history';
+    private static $url_segment = 'asset-history';
 
     private static $url_handlers = [
         '$FileID' => 'showHistory',
