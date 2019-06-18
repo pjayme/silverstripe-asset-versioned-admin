@@ -29,17 +29,21 @@ class ViewerController extends LeftAndMain
         $file = File::get()->byID($id);
 
         if (!$file) {
-            throw new Exception('Wtf did you do?');
+            throw new Exception(sprintf('Invalid file %s', $id));
         }
 
-        $form = Form::create($this, 'AssetsHistoryViewer');
-        $form->setFields(FieldList::create(
-            HiddenField::create('ID', null, $id),
+        $fields = FieldList::create(
+            HiddenField::create('ID', null, $id)
+        );
+
+        $form = Form::create($this, 'AssetsHistoryViewer', $fields, FieldList::create());
+
+        $fields->add(
             HistoryViewerField::create('AssetHistory')
                 ->addExtraClass('history-viewer--standalone')
                 ->setForm($form)
                 ->setContextKey('asset-history')
-        ));
+        );
 
         return [
             'Content' => $form->forTemplate()
