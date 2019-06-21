@@ -1,0 +1,7 @@
+SilverStripe\VersionedAdmin\Forms\HistoryViewerField:
+  extensions:
+    assetPreviewExtension: SilverStripe\AssetVersionedAdmin\Extension\HistoryViewerFieldExtension
+
+SilverStripe\AssetAdmin\Forms\FileFormFactory:
+  extensions:
+    fileFormFactoryExtensions: SilverStripe\AssetVersionedAdmin\Extension\FileFormFactoryExtension

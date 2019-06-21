@@ -1,13 +1,13 @@
 {
-  "name": "silverstripe-module-skeleton",
-  "description": "Description of your module",
+  "name": "silverstripe-asset-versioned-admin",
+  "description": "A history viewer for Files in SS4",
   "main": "./client/src/boot/index.js",
-  "author": "You",
+  "author": "pjayme",
   "engines": {
     "node": ">=10.x"
   },
   "scripts": {
-    "build": "yarn && yarn lint && NODE_ENV=production webpack -p --bail --progress",
+    "build": "yarn && NODE_ENV=production webpack -p --bail --progress",
     "dev": "NODE_ENV=development webpack --progress",
     "watch": "NODE_ENV=development webpack --watch --progress",
     "css": "WEBPACK_CHILD=css npm run build",
@@ -21,7 +21,9 @@
   },
   "dependencies": {
     "babel-polyfill": "6.7.4",
-    "react": "^16.8.3"
+    "react": "^16.8.3",
+    "react-apollo": "^0.7.1",
+    "graphql-tag": "^0.1.17"
   },
   "devDependencies": {
     "@silverstripe/eslint-config": "^0.0.5",
@@ -29,7 +31,8 @@
     "babel-jest": "^23.6.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.10.0",
-    "jest-cli": "^23.6.0"
+    "jest-cli": "^23.6.0",
+    "webpack": "^2.6.1"
   },
   "babel": {
     "presets": [
@@ -43,6 +46,13 @@
   "jest": {
     "roots": [
       "client/src"
+    ],
+    "moduleDirectories": [
+      "app/client/src",
+      "node_modules",
+      "node_modules/@silverstripe/webpack-config/node_modules",
+      "vendor/silverstripe/admin/client/src",
+      "vendor/silverstripe/admin/node_modules"
     ],
     "modulePaths": [
       "client/src",

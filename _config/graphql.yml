@@ -1,0 +1,12 @@
+SilverStripe\GraphQL\Manager:
+  schemas:
+    admin:
+      scaffolding:
+        types:
+          SilverStripe\Assets\File:
+            fields: [ID, LastEdited]
+            operations:
+              readOne: true
+              rollback: true
+      typeNames:
+        SilverStripe\Assets\File: VersionedFile

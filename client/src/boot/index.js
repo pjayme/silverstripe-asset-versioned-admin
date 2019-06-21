@@ -1,6 +1,29 @@
 /* global window */
-import registerComponents from 'boot/registerComponents';
+import Injector from 'lib/Injector';
+import readOneFileQuery from '../state/readOneFileQuery';
+import revertToFileVersionMutation from '../state/revertToFileVersionMutation';
 
 window.document.addEventListener('DOMContentLoaded', () => {
-  registerComponents();
+  // Register GraphQL operations with Injector as transformations
+  Injector.transform(
+    'File-history',
+    (updater) => {
+      updater.component(
+        'HistoryViewer',
+        readOneFileQuery,
+        'AssetHistoryViewer',
+      );
+    },
+  );
+
+  Injector.transform(
+    'File-history-revert',
+    (updater) => {
+      updater.component(
+        'HistoryViewerToolbar.VersionedAdmin.HistoryViewer.File.HistoryViewerVersionDetail',
+        revertToFileVersionMutation,
+        'FileRevertMutation',
+      );
+    },
+  );
 });
